@@ -16,6 +16,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -37,45 +40,57 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.3"
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
-    // Usa solo una de las siguientes dos líneas para cada dependencia
-    implementation(libs.androidx.core.ktx) // O
-    // implementation 'androidx.core:core-ktx:1.12.0'
+    // Core KTX
+    implementation(libs.androidx.core.ktx)
 
-    implementation(libs.androidx.lifecycle.runtime.ktx) // O
-    // implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    // Lifecycle
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0") // Nuevo
 
-    implementation(libs.androidx.activity.compose) // O
-    // implementation 'androidx.activity:activity-compose:1.8.2'
+    // Activity Compose
+    implementation(libs.androidx.activity.compose)
 
+    // Compose BOM
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui) // O
-    // implementation 'androidx.compose.ui:ui'
 
-    implementation(libs.androidx.ui.graphics) // O
-    // implementation 'androidx.compose.ui:ui-tooling-preview'
+    // UI
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
 
-    implementation(libs.androidx.ui.tooling.preview) // O
-    // implementation 'androidx.compose.material3:material3'
-
+    // Material 3
     implementation(libs.androidx.material3)
+    implementation("androidx.compose.material3:material3-window-size-class:1.1.2")
 
-    // Iconos adicionales (FilterList, etc.)
+    // Navigation Compose (versión única)
+    implementation("androidx.navigation:navigation-compose:2.7.0") // Solo una vez
+
+    // Icons
     implementation("androidx.compose.material:material-icons-extended")
 
+    // Splash Screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    // Dependencias de prueba
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
 
+    // Debug
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-    implementation("androidx.core:core-splashscreen:1.0.1")
 }

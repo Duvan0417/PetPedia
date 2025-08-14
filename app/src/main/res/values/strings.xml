@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">primerproyecto</string>
+    <string name="foro_titulo">Foro de la Comunidad PetPedia</string>
+    <string name="volver">Volver</string>
+    <string name="comunidades">Comunidades</string>
+    <string name="tendencias">Tendencias</string>
+    <string name="usuarios_activos">Usuarios Activos</string>
+    <string name="avatar_usuario">Avatar de %s</string>
+    <string name="imagen_post">Imagen del post</string>
+    <string name="imagen_comunidad">Imagen de la comunidad %s</string>
+    <string name="likes">Me gusta</string>
+    <string name="comentario">comentario</string>
+    <string name="comentarios">comentarios</string>
+    <string name="vistas">vistas</string>
+    <string name="miembros">miembros</string>
+    <string name="publicaciones">publicaciones</string>
+    <string name="unirse">Unirse</string>
+    <string name="unido">Unido</string>
+
 </resources>
